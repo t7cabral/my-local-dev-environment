@@ -1,0 +1,8 @@
+jupyterlab ~= 3.5.2
+pandas ~= 1.5.2
+dask ~= 2023.1.0
+connectorx ~= 0.3.1
+
+# plugins jupyterlab
+jupyterlab-favorites ~= 3.1.1
+jupyterlab-spreadsheet-editor ~= 0.6.1

@@ -1,0 +1,4 @@
+# Arquivos de restrição são arquivos de requisitos que controlam apenas qual
+# versão de um requisito está instalada.
+# Exemplo:
+# pandas == 1.5.0
