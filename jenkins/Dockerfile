@@ -1,5 +1,5 @@
-# FROM jenkins/jenkins:lts
-FROM jenkins/jenkins:2.330-jdk11
+FROM jenkins/jenkins:lts
+# FROM jenkins/jenkins:2.330-jdk11
 
 ARG ADMIN_PASSWORD
 
