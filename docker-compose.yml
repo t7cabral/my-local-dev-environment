@@ -17,6 +17,9 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_DB}
+      - FTP_HOST=ftp-server
+      - FTP_USER=${FTP_USER}
+      - FTP_PASSWORD=${FTP_PASSWORD}
     ports:
       - ${JENKINS_PORT}:8080
       - 50000:50000
@@ -53,6 +56,9 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_DB}
+      - FTP_HOST=ftp-server
+      - FTP_USER=${FTP_USER}
+      - FTP_PASSWORD=${FTP_PASSWORD}
     restart: unless-stopped
     ports:
       - ${JUPYTERLAB_PORT}:8888
@@ -61,6 +67,25 @@ services:
     networks:
       - local-dev-network
 
+  ftp-server:
+    container_name: ftp-server
+    platform: linux/x86_64
+    image: garethflowers/ftp-server
+    env_file:
+      - .env
+    environment:
+      - FTP_USER=${FTP_USER}
+      - FTP_PASS=${FTP_PASSWORD}
+    ports:
+      - '20-21:20-21/tcp'
+      - '40000-40009:40000-40009/tcp'
+    volumes:
+      - ${VOLUME_PATH}/ftp-server:/home/user
+    restart: always
+    networks:
+      - local-dev-network
+
 networks:
   local-dev-network:
     driver: 'bridge'
+
