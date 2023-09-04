@@ -88,4 +88,3 @@ services:
 networks:
   local-dev-network:
     driver: 'bridge'
-

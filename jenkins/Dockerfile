@@ -21,16 +21,16 @@ USER root
 
 # Install some prerequisites
 RUN apt-get update && \
-     apt-get install -y \
-     software-properties-common \
-     apt-transport-https \
-     ca-certificates \
-     curl \
-     sudo \
-     gnupg2
+    apt-get install -y \
+    software-properties-common \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    sudo \
+    gnupg2
 
-RUN apt-get install -y python3-pip \
-    && pip3 install virtualenv
+# RUN apt-get install -y python3-pip \
+#    && pipx install virtualenv
 
 # Install the repository
 #RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && \
